@@ -43,10 +43,10 @@ def data_checking():
     result = rawresult.replace(",", "")
     return int(result)
 
-def get_global_img(name):
+def get_global_img(path, name):
     imgpath = "http://ncov.mohw.go.kr"
     for i in range(41, len(str(img[0]))):
         if str(img[0])[i] == "\"":
             break
         imgpath += str(img[0])[i]
-    return urlretrieve(imgpath, name)
+    return urlretrieve(imgpath, path + name)

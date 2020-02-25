@@ -1,15 +1,18 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-site = urlopen("http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=&brdGubun=&ncvContSeq=&contSeq=&board_id=&gubun=")
-resp = site.read()
-soup = BeautifulSoup(resp, "lxml")
-
-
-find = soup.find_all('ul', class_='s_listin_dot')
-find = [each_line.get_text().strip() for each_line in find[:20]]
-
-data = find[0].split("\n")
+try:
+    site = urlopen("http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=&brdGubun=&ncvContSeq=&contSeq=&board_id=&gubun=")
+    resp = site.read()
+    soup = BeautifulSoup(resp, "lxml")
+    
+    find = soup.find_all('ul', class_='s_listin_dot')
+    find = [each_line.get_text().strip() for each_line in find[:20]]
+    
+    data = find[0].split("\n")
+except:
+    print("질병관리본부 사이트 서버 오류. 잠시 후 다시 시도해주세요.")
+    exit()
 
 def data_infected():
     rawresult = ""

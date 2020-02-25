@@ -1,3 +1,8 @@
+'''
+COVID-19_KR
+LICENSE: MIT
+Copyright (C) 2020 yangis1019
+'''
 from urllib.request import urlopen, urlretrieve
 from bs4 import BeautifulSoup
 

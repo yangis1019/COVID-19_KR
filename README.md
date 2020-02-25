@@ -1,5 +1,5 @@
 # COVID-19_KR
-코로나19 대한민국 확진자 수 등등을 질본 홈폐이지( http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=&brdGubun=&ncvContSeq=&contSeq=&board_id=&gubun= )에서 가져오는 프로그램.
+코로나19 대한민국 확진자 수 등등을 질병관리본부 홈페이지( http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=&brdGubun=&ncvContSeq=&contSeq=&board_id=&gubun= )에서 가져오는 프로그램.
 # 사용법
 1. pip를 통해 BeautifulSoup와 urllib를 설치한다.
 

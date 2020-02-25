@@ -1,4 +1,4 @@
-from urllib.request import urlopen
+from urllib.request import urlopen, urlretrieve
 from bs4 import BeautifulSoup
 
 try:
@@ -8,6 +8,7 @@ try:
     
     find = soup.find_all('ul', class_='s_listin_dot')
     find = [each_line.get_text().strip() for each_line in find[:20]]
+    img = soup.find_all('div', class_='box_image')
     
     data = find[0].split("\n")
 except:
@@ -41,3 +42,11 @@ def data_checking():
         rawresult += data[3][i]
     result = rawresult.replace(",", "")
     return int(result)
+
+def get_global_img(name):
+    imgpath = "http://ncov.mohw.go.kr"
+    for i in range(41, len(str(img[0]))):
+        if str(img[0])[i] == "\"":
+            break
+        imgpath += str(img[0])[i]
+    return urlretrieve(imgpath, name)

@@ -4,6 +4,7 @@ LICENSE: MIT
 Copyright (C) 2020 yangis1019
 '''
 from urllib.request import urlopen, urlretrieve
+from urllib import parse
 from bs4 import BeautifulSoup
 
 try:
@@ -14,7 +15,8 @@ try:
     find = soup.find_all('ul', class_='s_listin_dot')
     find = [each_line.get_text().strip() for each_line in find[:20]]
     img = soup.find_all('div', class_='box_image')
-    
+
+    p_data = soup.find_all('p', class_='s_descript')
     data = find[0].split("\n")
 except:
     print("질병관리본부 사이트 서버 오류. 잠시 후 다시 시도해주세요.")
@@ -55,3 +57,14 @@ def get_global_img(path, name):
             break
         imgpath += str(img[0])[i]
     return urlretrieve(imgpath, path + name)
+
+def get_blocked_country(path, name):
+    pdfpath = "http://ncov.mohw.go.kr"
+    datpath = ""
+    for i in range(33, len(str(img[0]))):
+        if str(p_data[5])[i] == "\"":
+            break
+        datpath += str(p_data[5])[i]
+    datpath = parse.quote(datpath)
+    pdfpath += datpath
+    return urlretrieve(str(pdfpath), path + name)

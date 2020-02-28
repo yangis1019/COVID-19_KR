@@ -17,5 +17,3 @@
 ```data_checking()```: 검사 중인 사람들의 수를 int형으로 반환합니다.
 
 ```get_global_img(path, name)```: 질병관리본부에서 제공하는 코로나19의 국제 감염 현황 이미지를 path 경로에 파일명은 name으로 다운로드합니다.
-
-```get_blocked_country(path, name)```: 질병관리본부에서 제공하는 코로나19로 인한 한국인 입국 금지/제한 국가 명단 pdf를 path 경로에 파일명은 name으로 다운로드합니다.
